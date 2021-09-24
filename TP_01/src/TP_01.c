@@ -66,7 +66,8 @@ int main(void)
 		printf("*********************************************\n");
 		scanf("%d", &opcion);
 
-		switch(opcion){
+		switch(opcion)
+		{
 			case 1:
 				utn_getNumeroFloat(&numero1, "Ingrese el primer operando, por favor", "Número inválido");
 				banderaPrimerOperandoCargado=1;
@@ -112,7 +113,7 @@ int main(void)
 					}
 					else
 					{
-						printf("No se puede calcular el factorial de números negativos\n");
+						printf("No se puede calcular el factorial de números negativos ni números que no sean enteros\n");
 					}
 					if (respuestaFactorialDos==0)
 					{
@@ -120,7 +121,7 @@ int main(void)
 					}
 					else
 					{
-						printf("No se puede calcular el factorial de números negativos");
+						printf("No se puede calcular el factorial de números negativos ni números que no sean enteros");
 					}
 					printf("#############################################\n\n");
 				}

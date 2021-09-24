@@ -23,7 +23,8 @@ int utn_getNumeroFloat(float* pNumeroIngresado, char* mensaje, char* mensajeErro
 	return retorno;
 }
 
-float sumar(float num1, float num2){
+float sumar(float num1, float num2)
+{
 
 	float retorno;
 
@@ -32,7 +33,8 @@ float sumar(float num1, float num2){
 	return retorno;
 }
 
-float restar(float num1, float num2){
+float restar(float num1, float num2)
+{
 
 	float retorno;
 
@@ -41,7 +43,8 @@ float restar(float num1, float num2){
 	return retorno;
 }
 
-int dividir(float num1, float num2, float* pResultadoDivision){
+int dividir(float num1, float num2, float* pResultadoDivision)
+{
 
 	int estadoDivision=-1;
 
@@ -53,7 +56,8 @@ int dividir(float num1, float num2, float* pResultadoDivision){
 	return estadoDivision;
 }
 
-float multiplicar(float num1, float num2){
+float multiplicar(float num1, float num2)
+{
 
 	float retorno;
 
@@ -63,29 +67,37 @@ float multiplicar(float num1, float num2){
 }
 
 
-int calcularFactorial(float num1, int* pResultadoFactorial){
-
-	int estadoFactorial=-1;
+int calcularFactorial(float num1, int* pResultadoFactorial)
+{
+	int estadoFactorial;
 	int factorialParcial=1;
+	int auxEntero;
 	int i;
 
-	num1=(int)num1;
+	auxEntero=(int)num1;
 
-	if (num1>0)
+	if (num1-auxEntero)
 	{
-		for(i=num1;i>0;i--)
-		{
-			factorialParcial=factorialParcial*i;
-		}
-		*pResultadoFactorial=factorialParcial;
-		estadoFactorial=0;
+		estadoFactorial=-1;
 	}
 	else
 	{
-		if(num1==0)
+		if (num1>0)
 		{
-		*pResultadoFactorial=1;
-		estadoFactorial=0;
+			for(i=num1;i>0;i--)
+			{
+				factorialParcial=factorialParcial*i;
+			}
+			*pResultadoFactorial=factorialParcial;
+			estadoFactorial=0;
+		}
+		else
+		{
+			if(num1==0)
+			{
+			*pResultadoFactorial=1;
+			estadoFactorial=0;
+			}
 		}
 	}
 	return estadoFactorial;
