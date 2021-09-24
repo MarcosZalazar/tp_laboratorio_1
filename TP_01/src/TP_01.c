@@ -36,8 +36,8 @@ int main(void)
 	float numero2;
 	float resultadoSuma;
 	float resultadoResta;
-	float resultadoMultiplicacion;
 	float resultadoDivision;
+	float resultadoMultiplicacion;
 	int resultadoPrimerFactorial;
 	int resultadoSegundoFactorial;
 	int banderaPrimerOperandoCargado;
@@ -46,6 +46,7 @@ int main(void)
 	int respuestaDivision;
 	int respuestaFactorialUno;
 	int respuestaFactorialDos;
+	int respuestaCargaNumero;
 
 	numero1=0;
 	numero2=0;
@@ -69,12 +70,18 @@ int main(void)
 		switch(opcion)
 		{
 			case 1:
-				utn_getNumeroFloat(&numero1, "Ingrese el primer operando, por favor", "Número inválido");
+				respuestaCargaNumero=utn_getNumeroFloat(&numero1, "Ingrese el primer operando, por favor", "Número inválido");
+				if (respuestaCargaNumero==0)
+				{
 				banderaPrimerOperandoCargado=1;
+				}
 				break;
 			case 2:
-				utn_getNumeroFloat(&numero2, "Ingrese el segundo operando, por favor", "Número inválido");
+				respuestaCargaNumero=utn_getNumeroFloat(&numero2, "Ingrese el segundo operando, por favor", "Número inválido");
+				if (respuestaCargaNumero==0)
+				{
 				banderaSegundoperandoCargado=1;
+				}
 				break;
 			case 3:
 				if(banderaPrimerOperandoCargado==1 && banderaSegundoperandoCargado==1)
@@ -85,12 +92,12 @@ int main(void)
 					resultadoMultiplicacion=multiplicar(numero1,numero2);
 					respuestaFactorialUno=calcularFactorial(numero1,&resultadoPrimerFactorial);
 					respuestaFactorialDos=calcularFactorial(numero2,&resultadoSegundoFactorial);
+					banderaOperacionesRealizadas=1;
 				}
 				else
 				{
 					printf("Para realizar esta operación, primero debe cargar los dos operandos\n");
 				}
-				banderaOperacionesRealizadas=1;
 				break;
 			case 4:
 				if(banderaOperacionesRealizadas==1)
@@ -121,14 +128,15 @@ int main(void)
 					}
 					else
 					{
-						printf("No se puede calcular el factorial de números negativos ni números que no sean enteros");
+						printf("No se puede calcular el factorial de números negativos ni números que no sean enteros\n");
 					}
 					printf("#############################################\n\n");
 				}
 				else
 				{
-					printf("No hay resultados a informar. Primero debe cargar los dos operandos y la operación que desea realizar\n");
+					printf("No hay resultados a informar. Primero debe calcular las operaciones\n");
 				}
+				banderaOperacionesRealizadas=0;
 				break;
 			case 5:
 				printf("¡Gracias por utilizar la calculadora de la UTN!\n\n");

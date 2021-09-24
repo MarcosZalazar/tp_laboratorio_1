@@ -12,8 +12,8 @@
 int utn_getNumeroFloat(float* pNumeroIngresado, char* mensaje, char* mensajeError);
 float sumar(float num1, float num2);
 float restar(float num1, float num2);
-float multiplicar(float num1, float num2);
 int dividir(float num1, float num2, float* pResultadoDivision);
+float multiplicar(float num1, float num2);
 int calcularFactorial(float num1, int* pResultadoFactorial);
 
 #endif /* UTN_BIBLIOTECA_H_ */
