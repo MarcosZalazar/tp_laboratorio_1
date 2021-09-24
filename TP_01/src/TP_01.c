@@ -131,12 +131,12 @@ int main(void)
 						printf("No se puede calcular el factorial de números negativos ni números que no sean enteros\n");
 					}
 					printf("#############################################\n\n");
+					banderaOperacionesRealizadas=0;
 				}
 				else
 				{
 					printf("No hay resultados a informar. Primero debe calcular las operaciones\n");
 				}
-				banderaOperacionesRealizadas=0;
 				break;
 			case 5:
 				printf("¡Gracias por utilizar la calculadora de la UTN!\n\n");
