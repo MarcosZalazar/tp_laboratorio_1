@@ -217,7 +217,7 @@ static int getString(char* cadena, int longitud)
 
 /// \brief Verifica si la cadena ingresada es numerica
 /// \param cadena Cadena de caracteres a ser analizada
-/// \return Retorna 1 (vardadero) si la cadena es numerica, 0 (falso) si no lo es y -1 en caso de error
+/// \return Retorna 1 (verdadero) si la cadena es numerica, 0 (falso) si no lo es y -1 en caso de error
 
 static int esNumerica(char* cadena, int limite)
 {

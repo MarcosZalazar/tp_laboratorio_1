@@ -15,8 +15,8 @@
 #include "ArrayEmployees.h"
 
 #define CANT_EMPLEADOS 1000
-#define ORDEN_ASCENDENTE 1
 #define ORDEN_DESCENDENTE 0
+#define ORDEN_ASCENDENTE 1
 
 int main(void)
 {
@@ -62,8 +62,8 @@ int main(void)
 				{
 					if(addEmployee(arrayEmpleados, CANT_EMPLEADOS, auxId,auxNombre, auxApellido,auxSalario, auxSector)==0)
 					{
-						printf("\nCarga de cliente exitosa\n\n");
 						banderaAltas++;
+						printf("\nCarga de cliente exitosa\n\n");
 					}
 					else
 					{
@@ -81,12 +81,12 @@ int main(void)
 			case 2:
 				if(banderaAltas>0)
 				{
-					utn_getNumeroInt(&orden,"\nIngrese el criterio para odenar el listado de empleados (1-Ascendente, 2-Descendente)","\nCriterio inválido\n",1,2,3);
+					utn_getNumeroInt(&orden,"\nIngrese el criterio para odenar el listado de empleados (0-Descendente, 1-Ascendente)","\nCriterio inválido\n",0,1,3);
 					if(sortEmployee(arrayEmpleados,CANT_EMPLEADOS,orden)==0)
 					{
 						printEmployee(arrayEmpleados,CANT_EMPLEADOS);
 					}
-					if(utn_getNumeroInt(&idABuscar,"\n\nIngrese el ID del empleado","\nId inválido\n",0,100000000,3)==0)
+					if(utn_getNumeroInt(&idABuscar,"\n\nIngrese el ID del empleado a modificar","\nId inválido\n",0,100000000,3)==0)
 					{
 						if(modifyEmployee(arrayEmpleados, CANT_EMPLEADOS,idABuscar)==0)
 						{
@@ -117,10 +117,16 @@ int main(void)
 			case 3:
 				if(banderaAltas>0)
 				{
-					if(utn_getNumeroInt(&idABuscar,"\nIngrese el ID del empleado","\nId inválido\n",0,100000000,3)==0)
+					utn_getNumeroInt(&orden,"\nIngrese el criterio para odenar el listado de empleados (0-Descendente, 1-Ascendente)","\nCriterio inválido\n",0,1,3);
+					if(sortEmployee(arrayEmpleados,CANT_EMPLEADOS,orden)==0)
+					{
+						printEmployee(arrayEmpleados,CANT_EMPLEADOS);
+					}
+					if(utn_getNumeroInt(&idABuscar,"\nIngrese el ID del empleado a dar de baja","\nId inválido\n",0,100000000,3)==0)
 					{
 						if(removeEmployee(arrayEmpleados,CANT_EMPLEADOS,idABuscar)==0)
 						{
+							banderaAltas--;
 							printf("\nEmpleado dado de baja exitosamente\n\n");
 						}
 						else
@@ -148,7 +154,7 @@ int main(void)
 			case 4:
 				if(banderaAltas>0)
 				{
-					utn_getNumeroInt(&orden,"\nIngrese el criterio para odenar el listado de empleados (1-Ascendente, 2-Descendente)","\nCriterio inválido\n",1,2,3);
+					utn_getNumeroInt(&orden,"\nIngrese el criterio para odenar el listado de empleados (0-Descendente, 1-Ascendente)","\nCriterio inválido\n",0,1,3);
 					if(sortEmployee(arrayEmpleados,CANT_EMPLEADOS,orden)==0)
 					{
 						printEmployee(arrayEmpleados,CANT_EMPLEADOS);
